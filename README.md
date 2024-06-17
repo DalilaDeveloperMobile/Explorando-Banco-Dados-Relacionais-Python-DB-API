@@ -71,6 +71,47 @@ print(f'Seja bem vindo ao sistema {cliente["nome"]}')
 # ]
 # inserir_muitos(conexao, cursor, dados)
 ```
+### <img src="https://gifs.eco.br/wp-content/uploads/2021/06/gifs-de-coracao-7.gif" width="30px"> Injecao Sql:
+```python
+import sqlite3
+from pathlib import Path
+
+ROOT_PATH = Path(__file__).parent
+
+conexao = sqlite3.connect(ROOT_PATH / "meu_banco.sqlite")
+cursor = conexao.cursor()
+cursor.row_factory = sqlite3.Row
+
+id_cliente = input("Informe o id do cliente: ")
+cursor.execute(f"SELECT * FROM clientes WHERE id={id_cliente}")
+
+clientes = cursor.fetchall()
+
+for cliente in clientes:
+    print(dict(cliente))
+```
+### <img src="https://gifs.eco.br/wp-content/uploads/2021/06/gifs-de-coracao-7.gif" width="30px"> Tratando Exception:
+```python
+import sqlite3
+from pathlib import Path
+
+ROOT_PATH = Path(__file__).parent
+
+conexao = sqlite3.connect(ROOT_PATH / "meu_banco.sqlite")
+cursor = conexao.cursor()
+cursor.row_factory = sqlite3.Row
+
+try:
+    cursor.execute("DELETE FROM clientes WHERE id = 8;")
+    conexao.commit()
+
+    cursor.execute("INSERT INTO clientes (nome, email) VALUES (?,?)", ("Teste 3", "teste3@gmail.com"))
+    cursor.execute("INSERT INTO clientes (id, nome, email) VALUES (?,?,?)", (2, "Teste 4", "teste4@gmail.com"))
+    conexao.commit()
+except Exception as exc:
+    print(f"Ops! um erro ocorreu! {exc}")
+    conexao.rollback()
+```
 <h3 align="center"> Made with <img src="https://gifs.eco.br/wp-content/uploads/2021/06/gifs-de-coracao-7.gif" width="30px"> by Dalila...</h3>
 <div align="center"  style="display: inline-block">
   <a href="https://www.linkedin.com/in/dalila-cust%C3%B3dio-046076181/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 

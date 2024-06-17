@@ -3,7 +3,7 @@
 ### ✅Explorando Banco de Dados Relacionais com Python DB API. 
 ### Slides: [Banco de Dados](https://hermes.dio.me/files/assets/0a668da4-d06a-490b-b8ff-2b60966617b1.pptx). [Desafio](https://hermes.dio.me/files/assets/2de68bbc-d164-49b8-ac48-366abf227503.pptx).
 
-### <img src="https://gifs.eco.br/wp-content/uploads/2021/06/gifs-de-coracao-7.gif" width="30px"> Criação, Inserção, Alteração, Exclução, Consulta e Listagem Tabelas:
+### <img src="https://gifs.eco.br/wp-content/uploads/2021/06/gifs-de-coracao-7.gif" width="30px"> Criação, Inserção, Alteração, Exclução, Consulta e row_factory Tabelas:
 
 ```python
 import sqlite3

@@ -71,7 +71,7 @@ print(f'Seja bem vindo ao sistema {cliente["nome"]}')
 # ]
 # inserir_muitos(conexao, cursor, dados)
 ```
-### <img src="https://gifs.eco.br/wp-content/uploads/2021/06/gifs-de-coracao-7.gif" width="30px"> Injecao Sql:
+### <img src="https://gifs.eco.br/wp-content/uploads/2021/06/gifs-de-coracao-7.gif" width="30px"> Injeção Sql:
 ```python
 import sqlite3
 from pathlib import Path
